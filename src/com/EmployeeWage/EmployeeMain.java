@@ -14,9 +14,20 @@ public class EmployeeMain {
 
                     int wagePerHour = 20;
                     int fullDayHours = 8;
-                    int dailyWage = wagePerHour * fullDayHours;
+                    int partTimeHours = 4;
 
+                    boolean isPartTime = random.nextBoolean();
+
+                    if (isPartTime) {
+                        int partTimeWage = wagePerHour * partTimeHours;
+                    System.out.println("Employee is working Part-Time");
+                    System.out.println("Daily Part-Time Employee Wage: " + partTimeWage);
+
+                } else {
+                    int dailyWage = wagePerHour * fullDayHours;
+                    System.out.println("Employee is working Full-Time");
                     System.out.println("Daily Employee Wage: " + dailyWage);
+                }
 
                 } else {
                     System.out.println("Employee is Absent");
