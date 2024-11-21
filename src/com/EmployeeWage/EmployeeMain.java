@@ -16,22 +16,32 @@ public class EmployeeMain {
                     int fullDayHours = 8;
                     int partTimeHours = 4;
 
-                    boolean isPartTime = random.nextBoolean();
+                    int employeeType;
+                    if (random.nextBoolean()) {
+                        employeeType = 1; // Full-Time
+                    } else {
+                        employeeType = 2; // Part-Time
+                    }
+              switch (employeeType) {
+               case 1: // Full-Time
+                 int dailyWage = wagePerHour * fullDayHours;
+                 System.out.println("Employee is working Full-Time");
+                 System.out.println("Daily Employee Wage: " + dailyWage);
+                 break;
 
-                    if (isPartTime) {
-                        int partTimeWage = wagePerHour * partTimeHours;
-                    System.out.println("Employee is working Part-Time");
-                    System.out.println("Daily Part-Time Employee Wage: " + partTimeWage);
+               case 2:
+                  int partTimeWage = wagePerHour * partTimeHours;
+                  System.out.println("Employee is working Part-Time");
+                  System.out.println("Daily Part-Time Employee Wage: " + partTimeWage);
+                   break;
 
-                } else {
-                    int dailyWage = wagePerHour * fullDayHours;
-                    System.out.println("Employee is working Full-Time");
-                    System.out.println("Daily Employee Wage: " + dailyWage);
+               default:
+                  System.out.println("Invalid employee type");
+                  break;
                 }
 
                 } else {
                     System.out.println("Employee is Absent");
                 }
-
     }
 }
