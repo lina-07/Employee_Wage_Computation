@@ -21,7 +21,7 @@ public class EmployeeMain {
 }
 
                       interface EmpWageComputation {
-                      void addCompany(String companyName, int wagePerHour, int workingDaysPerMonth, int maxWorkingHours);
+                      void addCompany(String companyName, int wagePegrHour, int workingDaysPerMonth, int maxWorkingHours);
                       void computeWage();
                       void printCompanyWages();
 }
