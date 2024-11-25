@@ -3,50 +3,59 @@ package com.EmployeeWage;
 import java.util.Random;
 
 public class EmployeeMain {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation");
+                public static void main(String[] args) {
+                    System.out.println("Welcome to Employee Wage Computation");
 
-        Random random = new Random();
-        boolean isPresent = random.nextBoolean();
+                    Random random = new Random();
+                    boolean isPresent = random.nextBoolean();
 
-                if (isPresent) {
-                    System.out.println("Employee is Present");
+                    if (isPresent) {
+                        System.out.println("Employee is Present");
 
-                    int wagePerHour = 20;
-                    int fullDayHours = 8;
-                    int partTimeHours = 4;
-                    int workingDaysPerMonth = 20;
+                        int wagePerHour = 20;
+                        int fullDayHours = 8;
+                        int partTimeHours = 4;
+                        int workingDaysPerMonth = 20;
 
-                    int employeeType;
-                    if (random.nextBoolean()) {
-                        employeeType = 1; // Full-Time
-                    } else {
-                        employeeType = 2; // Part-Time
-                    }
-              switch (employeeType) {
-               case 1: // Full-Time
-                 int dailyWage = wagePerHour * fullDayHours;
-                 int monthlyWageFullTime = dailyWage * workingDaysPerMonth;
-                 System.out.println("Employee is working Full-Time");
-                 System.out.println("Daily Employee Wage: " + dailyWage);
-                 System.out.println("Monthly Employee Wage: " + monthlyWageFullTime);
-                 break;
+                        int totalWorkingHours = 0;
+                        int totalWorkingDays = 0;
+                        int totalWages = 0;
 
-               case 2:
-                  int partTimeWage = wagePerHour * partTimeHours;
-                  int monthlyWagePartTime = partTimeWage * workingDaysPerMonth;
-                  System.out.println("Employee is working Part-Time");
-                  System.out.println("Daily Part-Time Employee Wage: " + partTimeWage);
-                  System.out.println("Monthly Part-Time Employee Wage: " + monthlyWagePartTime);
-                   break;
+                        while (totalWorkingHours < 100 && totalWorkingDays < workingDaysPerMonth)
+                        {
+                        int employeeType;
 
-               default:
-                  System.out.println("Invalid employee type");
-                  break;
-                }
+                        if (random.nextBoolean()) {
+                            employeeType = 1; // Full-Time
+                        } else {
+                            employeeType = 2; // Part-Time
+                        }
+                        int hoursWorked;
+                            if (employeeType == 1) {
+                                hoursWorked = fullDayHours;
+                            } else {
+                                hoursWorked = partTimeHours;
+                            }
 
-                } else {
-                    System.out.println("Employee is Absent");
-                }
+                            if (totalWorkingHours + hoursWorked > 100) {
+                                hoursWorked = 100 - totalWorkingHours; // Adjust hours if they exceed the limit
+                            }
+
+                            totalWorkingHours += hoursWorked;
+                            totalWages += hoursWorked * wagePerHour;
+                            totalWorkingDays++;
+
+                            System.out.println("Day " + totalWorkingDays + ": Hours Worked = " + hoursWorked +
+                                    ", Total Hours = " + totalWorkingHours + ", Total Wages = " + totalWages);
+                        }
+
+                        System.out.println("\nFinal Summary:");
+                        System.out.println("Total Days Worked: " + totalWorkingDays);
+                        System.out.println("Total Hours Worked: " + totalWorkingHours);
+                        System.out.println("Total Wages: " + totalWages);
+
+        } else {
+            System.out.println("Employee is Absent");
+        }
     }
 }
