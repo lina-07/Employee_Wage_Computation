@@ -6,21 +6,28 @@ public class EmployeeMain {
                 public static void main(String[] args) {
                     System.out.println("Welcome to Employee Wage Computation");
                     Employee employee = new Employee();
-                    employee.computeWage();
+
+                    System.out.println("\nCompany A:");
+                    employee.computeWage("Company A", 20, 20, 100);
+
+                    System.out.println("\nCompany B:");
+                    employee.computeWage("Company B", 25, 22, 120);
+
+                    System.out.println("\nCompany C:");
+                    employee.computeWage("Company C", 18, 25, 90);
                 }
 }
 
                     class Employee {
-                    private int wagePerHour = 20;
+
                     private int fullDayHours = 8;
                     private int partTimeHours = 4;
-                    private int workingDaysPerMonth = 20;
 
-                    private int totalWorkingHours = 0;
-                    private int totalWorkingDays = 0;
-                    private int totalWages = 0;
+                    public void computeWage(String companyName, int wagePerHour, int workingDaysPerMonth, int maxWorkingHours){
+                        int totalWorkingHours = 0;
+                        int totalWorkingDays = 0;
+                        int totalWages = 0;
 
-                    public void computeWage() {
                     Random random = new Random();
                     boolean isPresent = random.nextBoolean();
 
@@ -51,11 +58,8 @@ public class EmployeeMain {
                             totalWages += hoursWorked * wagePerHour;
                             totalWorkingDays++;
 
-                            System.out.println("Day " + totalWorkingDays + ": Hours Worked = " + hoursWorked +
-                                    ", Total Hours = " + totalWorkingHours + ", Total Wages = " + totalWages);
                         }
 
-                        System.out.println("\nFinal Summary:");
                         System.out.println("Total Days Worked: " + totalWorkingDays);
                         System.out.println("Total Hours Worked: " + totalWorkingHours);
                         System.out.println("Total Wages: " + totalWages);
