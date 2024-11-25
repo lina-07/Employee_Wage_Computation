@@ -5,21 +5,27 @@ import java.util.Random;
 public class EmployeeMain {
                 public static void main(String[] args) {
                     System.out.println("Welcome to Employee Wage Computation");
+                    Employee employee = new Employee();
+                    employee.computeWage();
+                }
+}
 
+                    class Employee {
+                    private int wagePerHour = 20;
+                    private int fullDayHours = 8;
+                    private int partTimeHours = 4;
+                    private int workingDaysPerMonth = 20;
+
+                    private int totalWorkingHours = 0;
+                    private int totalWorkingDays = 0;
+                    private int totalWages = 0;
+
+                    public void computeWage() {
                     Random random = new Random();
                     boolean isPresent = random.nextBoolean();
 
                     if (isPresent) {
                         System.out.println("Employee is Present");
-
-                        int wagePerHour = 20;
-                        int fullDayHours = 8;
-                        int partTimeHours = 4;
-                        int workingDaysPerMonth = 20;
-
-                        int totalWorkingHours = 0;
-                        int totalWorkingDays = 0;
-                        int totalWages = 0;
 
                         while (totalWorkingHours < 100 && totalWorkingDays < workingDaysPerMonth)
                         {
@@ -38,7 +44,7 @@ public class EmployeeMain {
                             }
 
                             if (totalWorkingHours + hoursWorked > 100) {
-                                hoursWorked = 100 - totalWorkingHours; // Adjust hours if they exceed the limit
+                                hoursWorked = 100 - totalWorkingHours;
                             }
 
                             totalWorkingHours += hoursWorked;
