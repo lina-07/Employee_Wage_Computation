@@ -20,7 +20,13 @@ public class EmployeeMain {
                 }
 }
 
-                    class EmpWageBuilder{
+                      interface EmpWageComputation {
+                      void addCompany(String companyName, int wagePerHour, int workingDaysPerMonth, int maxWorkingHours);
+                      void computeWage();
+                      void printCompanyWages();
+}
+
+                    class EmpWageBuilder implements EmpWageComputation{
                         private List<CompanyEmpWage> companyEmpWageList;
 
                         private int fullDayHours = 8;
